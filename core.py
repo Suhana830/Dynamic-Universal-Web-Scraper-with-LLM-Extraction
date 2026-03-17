@@ -124,15 +124,15 @@ graph = StateGraph(InfoState)
 graph.add_node("schema_node", dynamic_schema)
 graph.add_node("agent_node", agent_node)
 graph.add_node("tools", tool_nodes)
-graph.add_node("crwaler_node", get_Info_From_Site)
+graph.add_node("InforExtract_node", get_Info_From_Site)
 
 
 graph.add_edge(START, "schema_node")
 graph.add_edge("schema_node", "agent_node")
 graph.add_conditional_edges("agent_node", tools_condition)
-graph.add_edge("tools", "crwaler_node")
-graph.add_edge("crwaler_node",END)
-
+graph.add_edge("tools", "InforExtract_node")
+graph.add_edge("InforExtract_node",END)
+graph.add_edge("agent_node", END)
 
 app = graph.compile()
 # app.get_graph().print_ascii()
