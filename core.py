@@ -132,7 +132,7 @@ graph.add_edge("schema_node", "agent_node")
 graph.add_conditional_edges("agent_node", tools_condition)
 graph.add_edge("tools", "crwaler_node")
 graph.add_edge("crwaler_node",END)
-graph.add_edge("agent_node", END)
+
 
 app = graph.compile()
 # app.get_graph().print_ascii()
